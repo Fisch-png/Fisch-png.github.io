@@ -8,17 +8,17 @@
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
 <body class="bg-gray-900 text-white h-screen">
-  <div class="max-w-7xl mx-auto h-full flex flex-col p-4">
-    <h1 class="text-4xl font-bold mb-6 text-center">💽 Flipper Zero Web Console</h1>
+  <div class="h-full flex flex-col p-4 max-w-7xl mx-auto">
+    <h1 class="text-4xl font-bold mb-4 text-center">🧡 Flipper Zero Web Console</h1>
     
     <div class="flex justify-center gap-4 mb-4">
       <button id="connectBtn" class="bg-green-600 px-6 py-3 rounded text-lg">Connect</button>
       <button id="clearBtn" class="bg-gray-700 px-6 py-3 rounded text-lg">Clear</button>
     </div>
 
-    <!-- HUGE vertical console (80% of screen height) -->
-    <div id="console" class="bg-black overflow-y-scroll p-4 font-mono text-base border border-gray-700 rounded mb-4 h-[80vh]">
-      <!-- Console output appears here -->
+    <!-- Fill ALL remaining vertical space -->
+    <div id="console" class="flex-grow bg-black overflow-y-scroll p-4 font-mono text-base border border-gray-700 rounded mb-4">
+      <!-- Logs go here -->
     </div>
 
     <form id="inputForm" class="flex gap-4">
@@ -28,3 +28,4 @@
   </div>
 </body>
 </html>
+
