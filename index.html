@@ -8,15 +8,18 @@
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
 <body class="bg-gray-900 text-white h-screen">
-  <div class="max-w-full h-full flex flex-col p-4">
-    <h1 class="text-4xl font-bold mb-6 text-center">🧡 Flipper Zero Web Console</h1>
+  <div class="max-w-7xl mx-auto h-full flex flex-col p-4">
+    <h1 class="text-4xl font-bold mb-6 text-center">💽 Flipper Zero Web Console</h1>
     
     <div class="flex justify-center gap-4 mb-4">
       <button id="connectBtn" class="bg-green-600 px-6 py-3 rounded text-lg">Connect</button>
       <button id="clearBtn" class="bg-gray-700 px-6 py-3 rounded text-lg">Clear</button>
     </div>
 
-    <div id="console" class="flex-1 bg-black overflow-y-scroll p-4 font-mono text-base border border-gray-700 rounded mb-4" style="min-height: 500px;"></div>
+    <!-- HUGE vertical console (80% of screen height) -->
+    <div id="console" class="bg-black overflow-y-scroll p-4 font-mono text-base border border-gray-700 rounded mb-4 h-[80vh]">
+      <!-- Console output appears here -->
+    </div>
 
     <form id="inputForm" class="flex gap-4">
       <input type="text" id="commandInput" placeholder="Enter command..." class="flex-1 bg-gray-800 border border-gray-600 rounded px-4 py-3 text-lg focus:outline-none">
@@ -25,4 +28,3 @@
   </div>
 </body>
 </html>
-
