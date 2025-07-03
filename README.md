@@ -1,4 +1,2 @@
 # Fisch-png.github.io
-## CONSOLE FOR THE FLIPPER ZERO
-###
-####
+# THE PAGE FOR FISCH PLAYERS
